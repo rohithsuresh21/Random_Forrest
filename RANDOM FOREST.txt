@@ -1,0 +1,42 @@
+RANDOM FOREST
+
+1. What is a Random Forest?
+It is an Ensemble method. "Ensemble" just means a group. It creates many Decision Trees (a "Forest") and combines their outputs.
+
+For Classification: Every tree "votes" for a category (Win or Loss). The category with the most votes wins.
+
+For Regression: Every tree predicts a number. The final answer is the average of all those numbers.
+
+2. Why is it better than a single Decision Tree?
+Reduces Overfitting: A single tree might memorize specific weird rows in your data (like that one time a team won from an impossible situation). A Random Forest ignores those "flukes" because the other 99 trees won't agree with it.
+
+Handles Messy Data: It’s very good at dealing with missing values or "outliers" (weird data points).
+
+Stability: Small changes in your data won't change the final prediction much.
+
+library:
+
+from sklearn.ensemble import RandomForestClassifier
+
+How to make the Random Forest "Smarter" (Hyperparameters)
+
+To truly master Random Forests, you need to know which "knobs" to turn. These are called Hyperparameters. In your code, you can change these inside the RandomForestClassifier() brackets:
+
+1.n_estimators: (You used 100).
+
+Low (10): Fast, but might make mistakes (too few "voters").
+
+High (500): Very stable, but takes more memory and time.
+
+2.max_depth: (How tall the trees grow).
+
+None (Default): Trees grow until they perfectly memorize every row. This can lead to Overfitting.
+
+Small (3 or 5): Forces trees to find "General Rules" rather than memorizing names/details.
+
+3.max_features: (The "Randomness" knob).
+
+It decides how many features each tree can see at each split. Usually, it's set to 'sqrt'.
+ 
+
+
